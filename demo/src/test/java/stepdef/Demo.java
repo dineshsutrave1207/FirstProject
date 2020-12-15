@@ -2,6 +2,7 @@ package stepdef;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import utilities.ConfigConnection;
 
 public class Demo {
 	@Given("^open browser$")
@@ -12,7 +13,8 @@ public class Demo {
 
 	@Then("^browse the website$")
 	public void browse_the_website() throws Throwable {
-		System.out.println("hi");   
+		System.out.println("hi");  
+		ConfigConnection.loadPropertyFile();
 	}
 
 	@Then("^Close$")
