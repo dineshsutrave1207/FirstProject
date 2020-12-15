@@ -10,8 +10,9 @@ public class PropertyHandler {
 	 public static Properties loadpropertyfile(String file)
 	 {
 		 configProp =new Properties();
+		 String filename = System.getProperty("user.dir")+"\\src\\main\\resources\\utils\\"+file+".properties";
 		 try {
-			 configProp.load(new FileInputStream(new File(System.getProperty("user.dir")+"\\src\\main\\resources\\utils\\"+file+".properties")));
+			 configProp.load(new FileInputStream(new File(filename)));
 		 }
 		 catch(Exception e)
 		 {
