@@ -14,7 +14,8 @@ public class Demo {
 
 	@Then("^browse the website$")
 	public void browse_the_website() throws Throwable {
-		System.out.println("hi");  
+		System.out.println("hi");
+		WebDriverClass.WebOpen();
 	}
 
 	@Then("^Close$")

@@ -1,5 +1,6 @@
 package webelements;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -8,8 +9,12 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import utilities.PropertyHandler;
 
 public class WebDriverClass {
+	/*
+	 * public enum String xpath{ entervalues='"//*[@id='search']"',
+	 * clickonsearch=''; }
+	 */
 	
-	public static void main(String args[]) throws InterruptedException {
+	public static void WebOpen() throws InterruptedException {
 	
 	WebDriver driver ;
 	String driverpath= System.getProperty("user.dir")+"\\driver\\";
@@ -35,7 +40,10 @@ public class WebDriverClass {
 	
 	driver.navigate().to(PropertyHandler.getProperty("url"));
 	driver.manage().window().maximize();
-	Thread.sleep(10);
+	driver.findElement(By.xpath("//*[@id='search']")).sendKeys("cucumber");
+	Thread.sleep(100);
+	driver.findElement(By.xpath("//*[@id=\"search-icon-legacy\"]")).click();
+	Thread.sleep(100);
 	driver.close();
 	driver.quit();
 	}
