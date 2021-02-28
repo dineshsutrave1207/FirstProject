@@ -2,7 +2,6 @@ package stepdef;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import utilities.ConfigConnection;
 import webelements.WebDriverClass;
 
 public class Demo {

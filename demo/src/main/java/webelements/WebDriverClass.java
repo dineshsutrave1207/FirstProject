@@ -9,11 +9,24 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import utilities.PropertyHandler;
 
 public class WebDriverClass {
-	/*
-	 * public enum String xpath{ entervalues='"//*[@id='search']"',
-	 * clickonsearch=''; }
-	 */
 	
+	public enum xpath {
+		ENTERVALUES("//input[@id='search']"),
+		CLICK("//button[@id='search-icon-legacy']");
+	   
+	    private final String xpathvalue;
+
+	    xpath(String xpathvalue) {
+	        this.xpathvalue = xpathvalue;
+	    }
+	    
+	    public String getxpathValue() {
+	        return this.xpathvalue;
+	    }
+	    
+	}
+
+	//public static void main(String args[]) throws InterruptedException{
 	public static void WebOpen() throws InterruptedException {
 	
 	WebDriver driver ;
@@ -24,7 +37,7 @@ public class WebDriverClass {
 	
 	if(browser.equalsIgnoreCase("chrome"))
 	{
-		System.setProperty("webdriver.chrome.driver",driverpath+"\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",driverpath+"\\chromedriver88.exe");
 		driver= new ChromeDriver();
 	}
 	else if(browser.equalsIgnoreCase("ie"))
@@ -40,10 +53,10 @@ public class WebDriverClass {
 	
 	driver.navigate().to(PropertyHandler.getProperty("url"));
 	driver.manage().window().maximize();
-	driver.findElement(By.xpath("//*[@id='search']")).sendKeys("cucumber");
+	driver.findElement(By.xpath(xpath.ENTERVALUES.getxpathValue())).sendKeys("Cucumber");
 	Thread.sleep(100);
-	driver.findElement(By.xpath("//*[@id=\"search-icon-legacy\"]")).click();
-	Thread.sleep(100);
+	driver.findElement(By.xpath(xpath.CLICK.getxpathValue())).click();
+	Thread.sleep(300);
 	driver.close();
 	driver.quit();
 	}

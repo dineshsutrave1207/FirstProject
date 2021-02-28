@@ -10,7 +10,6 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "src/main/resources/Feature",
 				glue = {""},
 				plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/report.html"},
-				//plugin = {"pretty", "html:target/report"},
 				tags = {"@demo"},
 				monochrome = true
 				)
